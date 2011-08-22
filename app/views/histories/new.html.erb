@@ -1,0 +1,15 @@
+<script type="text/javascript">
+  window.addEventListener("message", receiveMessage, false);
+  function receiveMessage(event){
+    $("input#history_url").val(event.data);
+    $("input[type='submit']").trigger("click");
+  }
+
+</script>
+<%= @current_user.id %>
+<h1>New history</h1>
+
+<%= render 'form' %>
+
+
+<%= link_to 'Back', histories_path %>

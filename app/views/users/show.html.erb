@@ -1,0 +1,7 @@
+<p> <%= @user.email%></p>
+<p> histories  </p>
+<% if !@histories.blank? %>
+  <% @histories.each do |history| %>
+    <br><%= link_to history.url, history %></br>
+  <% end %>
+<% end %>

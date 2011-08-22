@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mention: MyString
+  user_id: 1
+  history_id: 1
+
+two:
+  mention: MyString
+  user_id: 1
+  history_id: 1

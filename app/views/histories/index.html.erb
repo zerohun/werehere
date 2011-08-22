@@ -1,0 +1,24 @@
+<h1>Listing histories</h1>
+
+<%= link_to "Destroy All", destroyall_histories_path %>
+<table>
+  <tr>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @histories.each do |history| %>
+  <tr>
+    <td><%= link_to history.url, history %></td>
+    <td><%= link_to 'Show', history %></td>
+    <td><%= link_to 'Edit', edit_history_path(history) %></td>
+    <td><%= link_to 'Destroy', history, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New History', new_history_path %>
