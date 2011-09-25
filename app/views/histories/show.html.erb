@@ -1,16 +1,3 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Url:</b>
-  <%= @history.url %>
-</p>
-
-<p> current users in this url</p>
-<% @history.users.each do |user| %>
-  <br><%= link_to user.email, user %></br>
-<% end %>
-
-<%= render "comments/comment_list" %>
-<%= link_to 'Edit', edit_history_path(@history) %> |
-<%= link_to 'Back', histories_path %>|
-<%= link_to 'Write comment', new_history_comment_path(@history) %>
 <%= render "comments/ajaxchat" %>
+<%= render "comments/comment_list" %>
+

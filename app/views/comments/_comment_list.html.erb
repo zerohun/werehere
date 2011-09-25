@@ -1,6 +1,6 @@
-<div id="comments">
-  <% @history.comments.each do |comment| %>
-    <br> <%= link_to comment.user.email, comment.user if comment.user.present?  %></br>
-    <br> <%= link_to comment.mention, comment %></br>
+<div id="chat_layer" history_url="presence-<%= @history.url %>">
+  <% @comments.each do |comment| %>
+    <br> <%= link_to comment.user.email, comment.user if comment.user.present?  %>
+    : <%= link_to comment.mention, comment %></br>
   <% end %>
 </div>

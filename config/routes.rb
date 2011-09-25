@@ -1,5 +1,6 @@
 Werehere::Application.routes.draw do
-
+  
+  match "/pusher/auth" => "pusher#auth"
   resources :comments
   resources :users do
     resources :histories do

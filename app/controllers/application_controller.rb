@@ -10,13 +10,11 @@ class ApplicationController < ActionController::Base
 
   def require_authenticate
     redirect_to new_sessions_path if !authenticated?
-  end 
+  end
 
- 
   def authenticate!
     redirect_to new_sessions_path 
   end
-  
 
   helper_method :require_authenticate, 
                 :current_user,

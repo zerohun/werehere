@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
   before_filter :find_history, :only => [:new, :create, :index]
   before_filter :find_comment_in_history, :except => [:new, :create, :index]
 
+
+
   def index
     @comments = @history.comments.all
     respond_to do |format|
@@ -41,14 +43,12 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = @history.comments.build(params[:comment].merge!(:user => current_user))
-    ChatAction.push_comment({:mention => @comment.mention, 
-                             :history_id => @comment.history_id})
 
     respond_to do |format|
       if @comment.save
+        Pusher["presence-#{@history.url}"].trigger('message', [@comment.user.email, @comment.mention])
         format.html { redirect_to history_comment_path(@history,@comment), notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
-        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

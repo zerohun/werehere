@@ -1,4 +1,11 @@
+require 'pusher'
+
+Pusher.app_id = '7788'
+Pusher.key    = '549a0df8768dd8aa4c88'
+Pusher.secret = 'ae77987863af848d701a'
+
 Werehere::Application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
